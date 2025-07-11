@@ -62,116 +62,33 @@ Ideal for learners who want to understand the nuts and bolts of classification a
    python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
-   Requirements: Python 3.12+
+   Requirements: Python 3.11+
 
 3. Install requirements if using the virtual environment:
 
    ```bash
    .venv/Scripts/pip install numpy
    .venv/Scripts/pip install pandas
+   .venv/Scripts/pip install openpyxl
    ```
-   Or if your main python script doesn't 
+   Or if you decidedyour python script to be run through the main python environment:
+   ```bash
+   pip install numpy
+   pip install pandas
+   pip install openpyxl
+   ```
 
 ---
 
 ## 🔧 Usage
-### Preparing Your Data
+All you have to do is run the **main.py** script, you can configure your local environment to run it
 
-Make sure you did the final
-
-### Training the Model
-
+If you don't have any IDE to help you set up the , you can write a following command in the console to run using your venv:
+```bash
+.venv/Scripts/python main.py
 ```
-model = LogisticRegression(learning_rate=0.1, num_iters=1000)
-model.fit(X_train, y_train)
-```
-
-### Making Predictions
-
-```python
-predictions = model.predict(X_test)  # returns binary labels
-probs = model.predict_proba(X_test)  # returns float probabilities (0–1)
-```
-
----
-
-## Constants
-
-### `LogisticRegression(learning_rate=0.01, num_iters=1000)`
-
-| Parameter       | Type    | Description                             |
-|----------------|---------|-----------------------------------------|
-| LEARNING_RATE  | float   | Gradient descent step size              |
-| num_iters      | int     | Number of training iterations           |
-
-#### `fit(X, y)`
-
-- **X** – Feature matrix  
-- **y** – Label vector
-
-Trains weights and bias via gradient descent.
-
-#### `predict_proba(X)`
-
-Returns probability estimates for the positive class.
-
-#### `predict(X)`
-
-Thresholds probabilities at 0.5, returning binary labels.
-
----
-
-## 📂 Example
-
-```python
-from logistic_regression import LogisticRegression
-
-# Toy dataset
-X = [[2.3, 4.5], [1.3, 3.2], [3.3, 0.5], [0.3, 1.5]]
-y = [1, 1, 0, 0]
-
-model = LogisticRegression(learning_rate=0.1, num_iters=2000)
-model.fit(X, y)
-
-print("Probabilities:", model.predict_proba(X))
-print("Predictions:", model.predict(X))
-```
-
----
-
-## ✅ Testing
-
-If there are test scripts:
+Or run it straight through the original python executable:
 
 ```bash
-python -m unittest discover tests
+python main.py
 ```
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repo  
-2. Create a new branch: `git checkout -b feature/YourFeature`  
-3. Implement and unit-test your feature  
-4. Submit a pull request with clear description
-
----
-
-## 📜 License
-
-Specify your license, e.g.:
-
-[MIT License](LICENSE)
-
----
-
-### 🛠 Next Steps / Todo
-
-- Add multi-class support via One‑vs‑Rest  
-- Implement regularization (L1, L2 penalties)  
-- Introduce mini‑batch or stochastic gradient descent  
-- Plot loss curves using `matplotlib`  
-- Integrate performance metrics like accuracy, precision, recall
